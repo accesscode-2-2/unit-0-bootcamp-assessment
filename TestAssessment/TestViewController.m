@@ -69,7 +69,6 @@
     int sum = 0;
     
     for (int i = 0; i <= 1000; i++) {
-            // The number is an odd multiple of 5 (skips 10, 20, etc.)
             sum += i;
         }
     
