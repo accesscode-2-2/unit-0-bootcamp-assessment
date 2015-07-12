@@ -19,39 +19,43 @@
     This method should return any negative NSInteger
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeNSInteger {
-    
+- (NSInteger)shouldReturnANegativeNSInteger {
+    return -5;
 }
 
 /*
     This method should return any positive CGFloat
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveCGFloat {
-    
+- (CGFloat)shouldReturnAPositiveCGFloat {
+    return 2.0;
 }
 
 /*
     This method should return a truthy boolean
     Truthy: Something which evaluates to TRUE.
  */
-- (void)shouldReturnAPositiveBool {
-    
+- (BOOL)shouldReturnAPositiveBool {
+    return YES;
 }
 
 /*
     This method should return any single char from c - l
  */
-- (void)shouldReturnACharCtoL {
-    
+- (char)shouldReturnACharCtoL {
+    return 'c';
 }
 
 /*
-    This method should return the product of all numbers from
+    This method should return the sum of all numbers from
     0 - 1000 using a loop (eg. 1 + 2 + 3 + ... + 998 + 999)
  */
 - (NSInteger)shouldReturnSumOf0To1000 {
-    return 0;
+    int sum = 0;
+    for (int i = 0; i < 1000; i++){
+        sum = sum + i;
+    }
+    return sum;
 }
 
 /*
@@ -60,7 +64,15 @@
  */
 - (NSInteger)shouldReturnAverageOfArrayValues :(int *)arr
                                  withSize:(int)count {
-    return 0;
+    int sum = 0;
+    int average = 0;
+    
+    for (int i = 0; i < count; i++){
+        sum = sum + arr[i];
+        average = sum / count;
+    }
+    
+    return average;
 }
 
 /*
@@ -70,16 +82,22 @@
     (hint: assume there will be a char after g)
  */
 - (char)shouldReturnCharAfterG:(char *)str {
-    return '\0';
+    
+    int i = 0;
+    
+    while (str[i] != 'g'){
+        i++;
+    }
+    return str[i+1];
 }
-
 /*
     This method should return the product of aNumber + bNumber
     (hint: product = muliplication
  */
 - (NSInteger)productOfAnInteger:(NSInteger)aNumber
               andAnotherInteger:(NSInteger)bNumber {
-    return 0.0;
+    
+    return aNumber*bNumber;
 }
 
 
@@ -87,14 +105,25 @@
     This method should return a YES if aNumber is Even
  */
 - (BOOL)isEven:(NSInteger)aNumber {
-    return NO;
+    if (aNumber % 2 == 0){
+        return YES;
+    } else {
+        return NO;
+    }
+    
+    return YES;
 }
 
 /*
     This method should return YES if aNumber is a multiple of 10
  */
 - (BOOL)isMultipleOfTen:(NSInteger)aNumber {
-    return NO;
+    if (aNumber % 10 == 0){
+        return YES;
+    } else {
+        return NO;
+    }
+    return YES;
 }
 
 /*
@@ -102,7 +131,13 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+    if (aNumber % 2 != 0 && bNumber % 2 == 0){
+        return YES;
+    } else {
+        return NO;
+    }
+    
+    return YES;
 }
 
 /*
@@ -110,13 +145,15 @@
     (hint: command + click on the class name to see what methods are available)
  */
 - (NSString *)shouldReturnCarModel:(Car *)car {
-    return @"";
+    
+    return car.model;
 }
 
 /*
     This method should change the model of the car to "Firebird"
  */
 - (void)changeCarModelToFirebird:(Car *)car {
+    [car setModel:@"Firebird"];
 }
 
 /*
@@ -124,7 +161,10 @@
     the car's current fuel level
  */
 - (CGFloat)tellCarToDrive4MilesAndReturnFuelLevel:(Car *)car {
-    return 0.0;
+    [car drive:4.0];
+    
+    
+    return car.fuelLevel;
 }
 
 /*
@@ -135,11 +175,27 @@
     4) Return the car
  */
 - (Car *)createAndReturnANewCar {
-    return [[Car alloc] init];
+    
+    Car *hondaPilot = [[Car alloc]init];
+    
+    [hondaPilot setModel:@"Honda Pilot"];
+    
+    [hondaPilot drive:6];
+    
+    return hondaPilot;
 }
 
 - (int)returnSumOfAllItemsGreaterThan100:(int *)arr withSize:(int)size {
-    return 0;
+    
+    int sum = 0;
+    for (int i = 0; i < size; i++){
+        if (arr[i] > 100){
+            sum = sum + arr[i];
+        }
+    }
+    
+    
+    return sum;
 }
 
 @end
