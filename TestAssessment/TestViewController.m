@@ -19,7 +19,9 @@
     This method should return any negative NSInteger
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeNSInteger {
+- (NSInteger)shouldReturnANegativeNSInteger {
+    
+    return -12;
     
 }
 
@@ -27,7 +29,9 @@
     This method should return any positive CGFloat
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveCGFloat {
+- (CGFloat)shouldReturnAPositiveCGFloat {
+    
+    return 12.3333;
     
 }
 
@@ -35,23 +39,37 @@
     This method should return a truthy boolean
     Truthy: Something which evaluates to TRUE.
  */
-- (void)shouldReturnAPositiveBool {
+- (BOOL)shouldReturnAPositiveBool {
+    
+    return YES;
     
 }
 
 /*
     This method should return any single char from c - l
  */
-- (void)shouldReturnACharCtoL {
+- (char)shouldReturnACharCtoL {
+    
+    return 'c';
     
 }
 
 /*
-    This method should return the product of all numbers from
+    This method should return the sum of all numbers from
     0 - 1000 using a loop (eg. 1 + 2 + 3 + ... + 998 + 999)
  */
 - (NSInteger)shouldReturnSumOf0To1000 {
-    return 0;
+    
+    int sum = 0;
+    
+    for (int i = 0; i <= 1000; i++) {
+        
+        sum = sum + i;
+        
+    }
+    
+    
+    return sum;
 }
 
 /*
@@ -60,7 +78,21 @@
  */
 - (NSInteger)shouldReturnAverageOfArrayValues :(int *)arr
                                  withSize:(int)count {
-    return 0;
+    
+    int average = 0;
+    int sum = 0;
+    
+    for (int i = 0; i < count; i++) {
+        
+        sum = sum + arr[i];
+        
+        
+    }
+    
+    average = sum / count;
+    
+    return average;
+    
 }
 
 /*
@@ -70,16 +102,34 @@
     (hint: assume there will be a char after g)
  */
 - (char)shouldReturnCharAfterG:(char *)str {
-    return '\0';
+    
+    int i = 0;
+    //for (i=0; str[i] != 'g'; i++) {
+    //
+    //}
+    
+    while (str[i] != 'g') {
+        
+        i++;
+        
+    }
+    
+    return str[i + 1];
+    
 }
 
 /*
-    This method should return the product of aNumber + bNumber
+    This method should return the product of aNumber * bNumber
     (hint: product = muliplication
  */
 - (NSInteger)productOfAnInteger:(NSInteger)aNumber
               andAnotherInteger:(NSInteger)bNumber {
-    return 0.0;
+    
+    //NSInteger product = aNumber * bNumber;
+    
+    return aNumber * bNumber;
+    
+    //0.0
 }
 
 
@@ -87,6 +137,14 @@
     This method should return a YES if aNumber is Even
  */
 - (BOOL)isEven:(NSInteger)aNumber {
+    
+    if (aNumber % 2 == 0) {
+        
+        return YES;
+        
+    }
+    
+    
     return NO;
 }
 
@@ -94,6 +152,12 @@
     This method should return YES if aNumber is a multiple of 10
  */
 - (BOOL)isMultipleOfTen:(NSInteger)aNumber {
+    
+    if (aNumber % 10 == 0) {
+        return YES;
+    }
+    
+    
     return NO;
 }
 
@@ -102,6 +166,13 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+    if (aNumber % 2 == 1 && bNumber % 2 == 0) {
+        return YES;
+    }
+    
+    
+    
+    
     return NO;
 }
 
@@ -110,13 +181,18 @@
     (hint: command + click on the class name to see what methods are available)
  */
 - (NSString *)shouldReturnCarModel:(Car *)car {
-    return @"";
+    
+    return [car model];
+    
 }
 
 /*
     This method should change the model of the car to "Firebird"
  */
 - (void)changeCarModelToFirebird:(Car *)car {
+    
+    [car setModel: @"firebird"];
+    
 }
 
 /*
@@ -124,7 +200,11 @@
     the car's current fuel level
  */
 - (CGFloat)tellCarToDrive4MilesAndReturnFuelLevel:(Car *)car {
-    return 0.0;
+    
+    [car drive:4];
+    
+    
+    return [car fuelLevel];
 }
 
 /*
@@ -135,11 +215,28 @@
     4) Return the car
  */
 - (Car *)createAndReturnANewCar {
-    return [[Car alloc] init];
+    
+    Car *honda = [[Car alloc] init];
+    [honda setModel: @"Honda Pilot"];
+    [honda drive:6];
+    
+    
+    return honda;
 }
 
 - (int)returnSumOfAllItemsGreaterThan100:(int *)arr withSize:(int)size {
-    return 0;
+    
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        
+        if (arr[i] > 100) {
+            sum = sum + arr[i];
+        }
+        
+    }
+    
+    
+    return sum;
 }
 
 @end
